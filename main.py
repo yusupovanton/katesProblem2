@@ -20,11 +20,12 @@ driver.get(website)
 # elem.send_keys(Keys.RETURN)
 
 # open file
-file1 = open("uchhebnik.txt", "w+")
+file1 = open("output/uchhebnik.txt", "w+")
 file1.truncate(0)
 time.sleep(10)
 
 try:
+
     for i in range(34):
         page = i+1
         site = website + str(page)
@@ -35,6 +36,7 @@ try:
         text = pytesseract.image_to_string('screenshot'+str(i+1)+'.png', lang='rus')
         file1.write(text)
         print(page)
+
 except Exception as ex:
     print(ex)
 finally:
